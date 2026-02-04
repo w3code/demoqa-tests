@@ -2,6 +2,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,6 +12,7 @@ import java.time.Duration;
 public class TestBase {
     WebDriver driver;
     public final String baseUrl = "https://demoqa.com";
+    TestData testData;
 
     @BeforeAll
     static void setupAll() {
@@ -19,8 +21,10 @@ public class TestBase {
 
     @BeforeEach
     public void setup() {
+        testData = new TestData();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1920,1080");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
