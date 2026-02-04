@@ -20,8 +20,8 @@ public class TextBoxPage {
             permanentAddress = By.id("permanentAddress"),
             submitButton = By.id("submit");
 
-    public TextBoxPage openPage() {
-        this.driver.get(baseUrl + "/text-box");
+    public TextBoxPage openPage(String path) {
+        this.driver.get(baseUrl + path);
         return this;
     }
 

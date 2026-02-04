@@ -7,7 +7,7 @@ public class ElementsTests extends TestBase {
         TextBoxPage textBoxPage = new TextBoxPage(driver, baseUrl);
 
         textBoxPage
-                .openPage()
+                .openPage("/text-box")
                 .setUserName(testData.userName)
                 .setUserEmail(testData.userEmail)
                 .setCurrentAddress(testData.currentAddress)
@@ -18,5 +18,4 @@ public class ElementsTests extends TestBase {
                 .checkResult("Current Address", testData.currentAddress)
                 .checkResult("Permananet Address", testData.permanentAddress);
     }
-
 }
