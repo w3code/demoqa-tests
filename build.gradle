@@ -1,0 +1,26 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.11.4',
+            'org.seleniumhq.selenium:selenium-java:4.40.0',
+            'io.github.bonigarcia:webdrivermanager:6.3.3'
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
