@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import pages.CheckBoxPage;
 import pages.TextBoxPage;
 
 public class ElementsTests extends TestBase {
@@ -17,5 +18,26 @@ public class ElementsTests extends TestBase {
                 .checkResult("Email", testData.userEmail)
                 .checkResult("Current Address", testData.currentAddress)
                 .checkResult("Permananet Address", testData.permanentAddress);
+    }
+
+    @Test
+    void checkBoxExpandTest() {
+        CheckBoxPage checkBoxPage = new CheckBoxPage(driver, baseUrl);
+
+        checkBoxPage
+                .openPage("/checkbox")
+                .clickExpandAll()
+                .isExpanded();
+    }
+
+    @Test
+    void checkBoxCollapseTest() {
+        CheckBoxPage checkBoxPage = new CheckBoxPage(driver, baseUrl);
+
+        checkBoxPage
+                .openPage("/checkbox")
+                .clickExpandAll()
+                .clickCollapseAll()
+                .isCollapsed();
     }
 }

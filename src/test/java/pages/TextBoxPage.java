@@ -13,12 +13,11 @@ public class TextBoxPage {
         this.baseUrl = baseUrl;
     }
 
-    private By
-            userName = By.id("userName"),
-            userEmail = By.id("userEmail"),
-            currentAddress = By.id("currentAddress"),
-            permanentAddress = By.id("permanentAddress"),
-            submitButton = By.id("submit");
+    private final By userName = By.id("userName");
+    private final By userEmail = By.id("userEmail");
+    private final By currentAddress = By.id("currentAddress");
+    private final By permanentAddress = By.id("permanentAddress");
+    private final By submitButton = By.id("submit");
 
     public TextBoxPage openPage(String path) {
         this.driver.get(baseUrl + path);
